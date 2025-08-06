@@ -1,0 +1,246 @@
+/* Importing pywal colors */
+
+@import url("file:///home/dakshin/.cache/wal/colors-waybar.css");
+* {
+    /* Base styling for all modules */
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: @background;
+    color: @foreground;
+}
+
+
+/* Common module styling with border-bottom */
+#mode,
+#custom-hardware-wrap,
+#custom-session-wrap,
+#clock,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#network,
+#pulseaudio,
+#wireplumber,
+#backlight,
+#disk,
+#power-profiles-daemon,
+#idle_inhibitor,
+#tray {
+    padding: 0 10px;
+    margin: 0 2px;
+    border-bottom: 2px solid transparent;
+    background-color: transparent;
+}
+
+/* Workspaces styling */
+#workspaces button {
+    padding: 0 10px;
+    background-color: transparent;
+    color: @color1;
+    margin: 0;
+}
+
+#workspaces button:hover {
+    background: @background-light;
+    box-shadow: inherit;
+}
+
+#workspaces button.focused {
+    box-shadow: inset 0 -2px @workspaces-focused-fg;
+    color: @color4;
+    font-weight: 900;
+}
+
+#workspaces button.urgent {
+    background-color: @workspaces-urgent-bg;
+    color: @workspaces-urgent-fg;
+}
+
+/* niri/window module styling */
+#window {
+    color: @foreground;
+    background-color: transparent;
+    padding: 0 10px;
+    margin: 0 5px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+/* When window title is present */
+#window:not(.empty) {
+    color: @color3; /* Pywal yellow/gold color */
+    background-color: @color0; /* Dark background */
+    /*border-bottom: 2px solid @color1;*/
+    opacity: 0.9;
+}
+
+/* When no window is focused/open */
+#window.empty {
+    color: @color8; /* Dimmed color */
+   /* border-bottom: 2px solid transparent;*/
+}
+
+/* Hover effect */
+#window:hover {
+    background-color: @color1;
+    color: @background;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+/* Module-specific styling */
+#mode {
+    color: @mode-color;
+    border-bottom-color: @mode-color;
+}
+
+#custom-hardware-wrap {
+    color: @group-hardware-color;
+    border-bottom-color: @group-hardware-color;
+}
+
+#custom-session-wrap {
+    color: @group-session-color;
+    border-bottom-color: @group-session-color;
+}
+
+#clock {
+    color: @color4;
+    border-bottom-color: @color4;
+}
+
+#cpu {
+    color: @color6;
+    border-bottom-color: @color6;
+}
+
+#memory {
+    color: @color6;
+    border-bottom-color: @color6;
+}
+
+#temperature {
+    color: @temperature-color;
+    border-bottom-color: @temperature-color;
+}
+
+#temperature.critical {
+    color: @temperature-critical-color;
+    border-bottom-color: @temperature-critical-color;
+}
+
+
+#power-profiles-daemon {
+    color: @power-profiles-daemon-color;
+    border-bottom-color: @power-profiles-daemon-color;
+}
+
+#power-profiles-daemon.performance {
+    color: @power-profiles-daemon-performance-color;
+    border-bottom-color: @power-profiles-daemon-performance-color;
+}
+
+#power-profiles-daemon.balanced {
+    color: @power-profiles-daemon-balanced-color;
+    border-bottom-color: @power-profiles-daemon-balanced-color;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @power-profiles-daemon-power-saver-color;
+    border-bottom-color: @power-profiles-daemon-power-saver-color;
+}
+
+#battery {
+    color: @battery-color;
+    border-bottom-color: @battery-color;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @battery-charging-color;
+    border-bottom-color: @battery-charging-color;
+}
+
+#battery.warning:not(.charging) {
+    color: @battery-warning-color;
+    border-bottom-color: @battery-warning-color;
+}
+
+#battery.critical:not(.charging) {
+    color: @battery-critical-color;
+    border-bottom-color: @battery-critical-color;
+}
+
+#network {
+    color: @color3;
+    border-bottom-color: @color3;
+}
+
+#network.disconnected {
+    color: @network-disconnected-color;
+    border-bottom-color: @network-disconnected-color;
+}
+
+#pulseaudio {
+    color: @pulseaudio-color;
+    border-bottom-color: @pulseaudio-color;
+}
+
+#pulseaudio.muted {
+    color: @pulseaudio-muted-color;
+    border-bottom-color: @pulseaudio-muted-color;
+}
+
+#wireplumber {
+    color: @color9;
+    border-bottom-color: @color9;
+}
+
+#wireplumber.muted {
+    color: @color8;
+    border-bottom-color: @color8;
+}
+
+#backlight {
+    color: @color1;
+    border-bottom-color: @color1;
+}
+
+#disk {
+    color: @color6;
+    border-bottom-color: @color6;
+}
+
+#idle_inhibitor {
+    color: @idle-inhibitor-color;
+    border-bottom-color: transparent;
+}
+
+#idle_inhibitor.activated {
+    color: @idle-inhibitor-active-color;
+    border-bottom-color: @idle-inhibitor-active-color;
+}
+
+#tray {
+    background-color: transparent;
+    padding: 0 10px;
+    margin: 0 2px;
+}
+
+#tray>.passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+    -gtk-icon-effect: highlight;
+    color: @red;
+    border-bottom-color: @red;
+}
+
