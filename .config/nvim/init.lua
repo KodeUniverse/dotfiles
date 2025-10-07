@@ -1,1 +1,3 @@
-require("dakshin-binds")
+require("config.lazy")
+require("config.options")
+require("config.keymaps")
