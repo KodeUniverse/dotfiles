@@ -61,21 +61,70 @@ return {
     end,
   },
 
-  -- Prettier
+  -- Syntax Highlighting w/ Treesitter
   {
-    'prettier/vim-prettier',
-    build = 'yarn install --frozen-lockfile --production',
-    ft = {
-      'javascript',
-      'typescript',
-      'css',
-      'scss',
-      'json',
-      'graphql',
-      'markdown',
-      'vue',
-      'yaml',
-      'html'
-    },
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    config = function()
+      require('nvim-treesitter.configs').setup({
+        -- Install parsers for languages you use
+        ensure_installed = {
+          'lua',
+          'vim',
+          'vimdoc',
+          'javascript',
+          'typescript',
+          'python',
+          'html',
+          'css',
+          'json',
+          'markdown',
+        },
+        
+        -- Install parsers synchronously (only applied to `ensure_installed`)
+        sync_install = false,
+        
+        -- Automatically install missing parsers when entering buffer
+        auto_install = true,
+        
+        highlight = {
+          enable = true,
+          -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+          additional_vim_regex_highlighting = false,
+        },
+        
+        indent = {
+          enable = true
+        },
+      })
+    end,
+  },
+
+  -- Conform.nvim (Formatting and linting)
+  {
+  'stevearc/conform.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
+    config = function()
+    require('conform').setup({
+        formatters_by_ft = {
+          javascript = { 'prettier', 'eslint_d' },
+          typescript = { 'prettier', 'eslint_d' },
+          javascriptreact = { 'prettier', 'eslint_d' },
+          typescriptreact = { 'prettier', 'eslint_d' },
+          css = { 'prettier' },
+          scss = { 'prettier' },
+          json = { 'prettier' },
+          yaml = { 'prettier' },
+          markdown = { 'prettier' },
+          html = { 'prettier' },
+          python = { 'black', 'isort' },
+          lua = { 'stylua' },
+        },
+        format_on_save = {
+          timeout_ms = 500,
+          lsp_fallback = true,
+        },
+      })
+    end,
   },
 }

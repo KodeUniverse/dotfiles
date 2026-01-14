@@ -1,6 +1,8 @@
 -- Enable line numbers
-vim.opt.number = true
-
+-- vim.opt.number = true
+vim.opt.nu = true
+vim.opt.relativenumber = true
+vim.o.statuscolumn = "%s %l %r "
 -- Highlight the current line
 vim.opt.cursorline = true
 
