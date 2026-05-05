@@ -5,32 +5,15 @@ return {
 		version = "*",
 		opts = {
 			keymap = {
-				preset = "none",
+				preset = "enter",
 				["<Tab>"] = {
+					"select_next",
 					function(cmp)
-						if cmp.is_visible() then
-							return cmp.select_next()
-						end
-						return false
+						if cmp.snippet_active() then return cmp.accept() end
 					end,
+					"fallback",
 				},
-				["<S-Tab>"] = {
-					function(cmp)
-						if cmp.is_visible() then
-							return cmp.select_prev()
-						end
-						return false
-					end,
-				},
-				["<CR>"] = {
-					function(cmp)
-						if cmp.is_visible() then
-							return cmp.accept()
-						end
-						return false
-					end,
-				},
-				["<C-e>"] = { function(cmp) return cmp.hide() end },
+				["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
 			},
 			sources = {
 				default = { "lsp", "path", "buffer" },
