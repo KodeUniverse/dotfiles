@@ -1,9 +1,4 @@
 return {
-<<<<<<< HEAD
-    "ibhagwan/fzf-lua",
-    dependencies = { "nvim-tree/nvim-web-devicons"},
-    opts = {},
-=======
 	"ibhagwan/fzf-lua",
 	-- optional for icon support
 	dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -14,5 +9,4 @@ return {
 	---@diagnostic disable: missing-fields
 	opts = {},
 	---@diagnostic enable: missing-fields
->>>>>>> db6b388 (Updated Neovim config along with adding keybind reference)
 }

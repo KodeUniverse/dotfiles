@@ -73,7 +73,7 @@ return {
 		lazy = false,
 		build = ":TSUpdate",
 		config = function()
-			require("nvim-treesitter.configs").setup({
+			require("nvim-treesitter").setup({
 				ensure_installed = {
 					"lua",
 					"vim",
@@ -86,7 +86,6 @@ return {
 					"json",
 					"markdown",
 				},
-				auto_install = true,
 				highlight = { enable = true },
 				indent = { enable = true },
 			})

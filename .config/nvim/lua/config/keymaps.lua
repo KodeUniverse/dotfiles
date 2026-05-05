@@ -1,3 +1,9 @@
+local map = vim.keymap.set
+
+-- File manager
+map("n", "<leader>f", ":Lf<CR>", { desc = "Open lf" })
+
+-- Theme Picker
 map("n", "<leader>t", ":Themery<CR>", { desc = "Open Themery" })
 
 -- Fzf Binds
