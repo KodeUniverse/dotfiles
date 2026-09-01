@@ -40,7 +40,7 @@ return {
 			require("mason").setup()
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "ts_ls", "svelte" },
+				ensure_installed = { "ts_ls", "svelte", "basedpyright", "ruff", "rust_analyzer"},
 				handlers = {
 					function(server_name)
 						require("lspconfig")[server_name].setup({ capabilities = capabilities })
@@ -61,6 +61,8 @@ return {
 					"lua",
 					"vim",
 					"vimdoc",
+                    "python",
+                    "rust",
 					"javascript",
 					"typescript",
 					"svelte",
@@ -90,6 +92,7 @@ return {
 				json = { "prettierd" },
 				html = { "prettierd" },
 				python = { "ruff" },
+                rust = { "rustfmt" },
 				lua = { "stylua" },
 			},
 			format_on_save = { timeout_ms = 500, lsp_fallback = true },
